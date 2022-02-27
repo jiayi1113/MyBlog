@@ -1,6 +1,6 @@
 <main class="text-center position-absolute top-50 start-50 translate-middle">
   <h1 class="fs-2">Welcome Blog</h1>
   <p class="text-center">註冊會員建立屬於自己的部落格</p>
-  <button type="button" class="btn btn-primary">註冊</button>
-  <button type="button" class="btn btn-primary">登入</button>
+  <%= link_to "註冊", new_registration_path(:user), class:"btn btn-primary" %>
+  <%= link_to "登入", new_session_path(:user), class:"btn btn-primary" %>
 </main>
