@@ -4,4 +4,6 @@ class User < ApplicationRecord
 
   has_many :blog_roles, dependent: :delete_all
   has_many :blogs, through: :blog_roles
+
+  has_many :articles
 end

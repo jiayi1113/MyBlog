@@ -2,5 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'welcome#index'
 
-  resources :blogs
+  resources :blogs do
+    resources :articles, shallow: true
+  end
 end
