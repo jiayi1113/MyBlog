@@ -1,0 +1,21 @@
+<%= render "/partial/nav"%>
+<%= link_to "新增文章", new_blog_article_path, class:"btn btn-primary mb-3" %>
+
+<div class="container">
+  <div class="row">
+    <% @articles.each do |article| %>
+      <div class="col-lg-4">
+        <div class="card" style="height: 180px;">
+          <div class="card-body">
+            <h5 class="card-title"><%= article.title %></h5>
+            <p class="card-text text-truncate mb-4"><%= article.content %></p>
+            <%= link_to 'Read more', article_path(article.id), class:"btn btn-primary" %>
+            <%= link_to "修改", edit_article_path(article.id), class:"btn btn-secondary"%>
+            <%= link_to "刪除", article_path(article.id), method: 'delete', data: {confirm: '確認刪除?'}, class:"btn btn-secondary" %>
+            <p class="card-text text-truncate mb-4">是否公開：<%= article.state %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

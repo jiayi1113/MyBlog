@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_27_144441) do
+ActiveRecord::Schema.define(version: 2022_02_28_050138) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.boolean "state", default: true
+    t.integer "blog_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "blog_roles", force: :cascade do |t|
     t.integer "user_id", null: false

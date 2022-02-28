@@ -1,18 +1,18 @@
-<%= form_with model: @blog do |f| %>
+<%= form_with model: [:blog, @article] do |f| %>
   <div class="row d-flex justify-content-center align-items-center">
-    <div class="col-xl-5">
-      <h2 class="mb-4"><%= btn %>Blog</h2>
+    <div class="col-xl">
+      <h2 class="mb-4"><%= btn %>文章</h2>
       <div class="card" style="border-radius: 15px;">
         <div class="card-body" >
           <div class="row align-items-center pt-4 pb-3">
             <div class="field ">
-              <%= f.label :title, "Blog名稱" %>
+              <%= f.label :title, "標題" %>
               <%= f.text_field :title, autofocus: true, autocomplete: "email", class:"form-control form-control-lg" %>
             </div>
           </div>
           <div class="row align-items-center pt-4 pb-3">
             <div class="field ">
-              <%= f.label :content, "Blog描述" %>
+              <%= f.label :content, "內容" %>
               <%= f.text_area :content, autofocus: true, autocomplete: "email", class:"form-control form-control-lg" %>
             </div>
           </div>

@@ -19,7 +19,7 @@
           <th scope="row"><%= blog.title %></th>
           <td><%= blog.content %></td>
           <td><%= blog.blog_roles.pluck(:role).join %></td>
-          <td><%= link_to '進入Blog',blogs_path(blog.id)%></td>
+          <td><%= link_to '進入Blog', blog_articles_path(blog.id) %></td>
           <td><%= link_to "修改", edit_blog_path(blog.id)%></td>
           <td><%= link_to "刪除", blog_path(blog.id), method: 'delete', data: {confirm: '確認刪除?'} %></td>
         </tr>
