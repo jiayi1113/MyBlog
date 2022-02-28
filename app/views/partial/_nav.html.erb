@@ -1,0 +1,16 @@
+<nav class="navbar navbar-dark bg-primary mb-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Blogs</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <%= link_to '修改密碼', edit_registration_path(:user), class:"nav-link"%>
+          <%= link_to '登出', destroy_user_session_path, :method => :delete, class:"nav-link"%> 
+        </div>
+      </div>
+    </div>
+  </nav>
+</nav>
