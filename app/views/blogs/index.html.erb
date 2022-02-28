@@ -1,0 +1,30 @@
+<%= render "/partial/nav"%>
+<h1>Blogs列表</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped text-successtable-border border-light">
+    <thead class="border-light">
+      <tr>
+        <th scope="col">Blog</th>
+        <th scope="col"><strong>描述</strong></th>
+        <th scope="col"><strong>權限</strong></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @blogs.each do |blog| %>
+        <tr>
+          <th scope="row"><%= blog.title %></th>
+          <td><%= blog.content %></td>
+          <td><%= blog.blog_roles.pluck(:role).join %></td>
+          <td><%= link_to '進入Blog',blogs_path(blog.id)%></td>
+          <td><%= link_to "修改", edit_blog_path(blog.id)%></td>
+          <td><%= link_to "刪除", blog_path(blog.id), method: 'delete', data: {confirm: '確認刪除?'} %></td>
+        </tr>
+      <% end %>
+      <%= link_to "新增Blog", new_blog_path, class:"btn btn-primary" %>
+    </tbody>
+  </table>
+</div>
