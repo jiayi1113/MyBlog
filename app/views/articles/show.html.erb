@@ -1,0 +1,7 @@
+<%= render "/partial/nav"%>
+<%= link_to '回Blog', blog_articles_path(@article.blog), class:"btn btn-link mb-2" %>
+<h4><strong><%= @article.title %></strong></h4>
+
+<div class="mt-5">
+  <p class="text-muted"><%= @article.content %></p>
+</div>
