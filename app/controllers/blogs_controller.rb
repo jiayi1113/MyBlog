@@ -1,9 +1,9 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_blog, only: [:show, :edit, :update, :destroy]
+  before_action :find_blog, only: [:edit, :update, :destroy]
 
   def index
-    @blogs = Blog.all
+    @blogs = current_user.blogs.includes(:blog_roles)
   end
 
   def new
@@ -40,6 +40,7 @@ class BlogsController < ApplicationController
   def blog_params
     params.require(:blog).permit(:title, :content)
   end
+  
   def find_blog
     @blog = Blog.find(params[:id])
   end

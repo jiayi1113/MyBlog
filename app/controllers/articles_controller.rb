@@ -1,10 +1,14 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_blog, only: [:index, :new, :create]
+  before_action :find_blog, only: [:new, :create]
   before_action :find_article, only: [:show, :edit, :update, :destroy, :state]
 
   def index
-    @articles = Article.all
+    if BlogRole.find_by(user_id: current_user, blog_id:params[:blog_id]).role == "admin"
+      @articles = find_blog.articles
+    else
+      @articles = Article.where(blog_id: params[:blog_id], state: true)
+    end
   end
 
   def new

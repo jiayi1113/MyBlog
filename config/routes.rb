@@ -8,5 +8,8 @@ Rails.application.routes.draw do
         get :state
       end
     end
+    resources :blog_roles, only: [:index, :new, :create]
   end
+
+  resources :blog_roles, only: [:destroy]
 end
