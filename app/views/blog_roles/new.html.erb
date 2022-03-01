@@ -1,0 +1,28 @@
+<%= render "/partial/nav"%>
+
+<%= form_with model: [:blog, @blog_role] do |f| %>
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-xl-5">
+      <h2 class="mb-4">管理員權限</h2>
+      <div class="card" style="border-radius: 15px;">
+        <div class="card-body" >
+          <div class="row align-items-center pt-4 pb-3">
+            <div class="field ">
+              <%= f.label :email, "管理員email" %>
+              <%= f.text_field :email, class:"form-control form-control-lg" %>
+            </div>
+          </div>
+          <div class="row align-items-center pt-4 pb-3">
+            <div class="field ">
+              <%= f.label :role, "權限" %>
+              <%= f.select :role, options_for_select(BlogRole.roles.map{|key, value| [key, BlogRole.roles.key(value)]}, @blog_role.role), class:"form-control form-control-lg" %>
+            </div>
+          </div>
+          <div class="actions">
+            <%= f.submit "送出", class:"btn btn-primary btn-lg mb-4" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>    
+<% end %>

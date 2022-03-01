@@ -1,0 +1,23 @@
+<%= render "/partial/nav"%>
+<h1>管理員列表</h1>
+<div class="table-responsive">
+  <table class="table table-striped text-successtable-border border-light">
+    <thead class="border-light">
+      <tr>
+        <th scope="col">email</th>
+        <th scope="col"><strong>權限</strong></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @blog_roles.each do |blog_role| %>
+        <tr>
+          <th scope="row"><%= blog_role.user.email %></th>
+          <td><%= blog_role.role %></td>
+          <td><%= link_to "刪除", blog_role_path(blog_role.id), method: 'delete', data: {confirm: '確認刪除?'} %></td> 
+        </tr>
+      <% end %>
+      <%= link_to "新增管理員", new_blog_blog_role_path, class:"btn btn-primary" %>
+    </tbody>
+  </table>
+</div>
